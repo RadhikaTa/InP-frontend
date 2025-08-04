@@ -6,7 +6,7 @@ const SidebarContext = createContext();
 export const useSidebar = () => useContext(SidebarContext);
 
 const MainLayout = ({ children }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <SidebarContext.Provider value={{ isSidebarOpen, setIsSidebarOpen }}>
