@@ -1,11 +1,11 @@
 import React from 'react';
 import MazdaLogo from '../assets/MazdaLogo.png';
 import UserIcon from '../assets/user-icon.png';
-import UserName from '../assets/user-name.svg';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useSidebar } from './MainLayout'; // Import context
 
+// ✅ Corrected sections structure
 const sections = [
   {
     title: 'PARTS ORDER',
@@ -36,11 +36,11 @@ const Header = () => {
 
   return (
     <>
-      {/* Header Bar */}
+      {/* ===== Header Bar ===== */}
       <header className="w-full h-[70px] bg-[#2B2B2B] flex items-center justify-between px-4 md:px-6 lg:px-8 shadow-sm z-30 fixed top-0 left-0 right-0">
         {/* Left: Hamburger + Logo */}
         <div className="flex items-center gap-4 md:gap-6">
-          {/* Hamburger (always visible) */}
+          {/* Hamburger */}
           <button
             className="text-white"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -61,14 +61,10 @@ const Header = () => {
 
         {/* Right: User Info */}
         <div className="flex items-center gap-3 md:gap-4">
-          {/* <img
-            src={UserName}
-            alt="User Name"
-            className="w-[60px] h-[28px] md:w-[70px] md:h-[32px] lg:w-[80px] lg:h-[36px]"
-          /> */}
-          <div className='text-white font-mazda uppercase text-sm text-center'>Radhika Tayal
+          <div className="text-white font-mazda uppercase text-sm text-center leading-tight">
+            Radhika Tayal
             <br />
-            <span>(100006)</span>
+            <span className="text-white/80">(100006)</span>
           </div>
           <img
             src={UserIcon}
@@ -78,7 +74,7 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Sidebar */}
+      {/* ===== Sidebar ===== */}
       <aside
         className={`fixed top-[70px] left-0 h-full bg-[#2B2B2B] z-20 font-mazda overflow-y-auto shadow-lg transition-all duration-300 ease-in-out
         ${isSidebarOpen ? 'translate-x-0 w-[220px]' : '-translate-x-full md:translate-x-0 md:w-0'}`}
@@ -90,8 +86,9 @@ const Header = () => {
                 <div className="h-[55px] flex items-center px-5 text-[13px] font-bold text-white uppercase border-b border-[#3A3A3A] tracking-widest">
                   {section.title}
                 </div>
+
                 <div className="flex flex-col">
-                  {section.items.map((item, j) => {
+                  {(section.items || []).map((item, j) => {
                     const isActive =
                       location.pathname === item.path ||
                       (item.label === 'Suggested Stocks' && location.pathname === '/');

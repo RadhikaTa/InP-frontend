@@ -13,6 +13,7 @@ import InquirePartsOrders from "./components/InquirePartsOrders";
 import Footer from "./components/Footer";
 import ChatbotFooter from './components/ChatbotFooter';
 import './App.css';
+import PartNumbersQuantityPrediction from './components/PartNumbersQuantityPrediction';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/manage-backorders" element={<ManageBackorders />} />
           <Route path="/other-dealer-inventory" element={<OtherDealerInventory />} />
           <Route path="/inquire-parts-orders" element={<InquirePartsOrders />} />
+          <Route path="/part-numbers-quantity-prediction" element={<PartNumbersQuantityPrediction />} />
         </Routes>
         <ChatbotFooter />
         <Footer />

@@ -19,6 +19,7 @@ const Sidebar = () => {
         { label: 'View Stock Order', path: '/view-stock-order' },
         { label: 'Manage Backorders', path: '/manage-backorders' },
         { label: 'Inquire Parts Orders', path: '/inquire-parts-orders' },
+        { label: 'Part Numbers Quantity Prediction', path: '/part-numbers-quantity-prediction' },
       ],
     },
     { title: 'PARTS RETURN', items: [] },
